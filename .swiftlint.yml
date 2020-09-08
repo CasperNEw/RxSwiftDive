@@ -1,0 +1,8 @@
+excluded:
+  - Pods
+  - RxSwiftDiveTests
+  - RxSwiftDiveUITests
+
+function_body_length:
+  warning: 100
+  error: 200
