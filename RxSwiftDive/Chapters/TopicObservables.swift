@@ -17,9 +17,6 @@ protocol Topic {
 
 struct TopicObservables: Topic {
 
-    // MARK: - typealias
-    typealias Example = (title: String, action: () -> Void)
-
     // MARK: - Properties
     var title: String { return String(describing: TopicObservables.self) }
     private var examples: [Example] = []
@@ -141,9 +138,6 @@ struct TopicObservables: Topic {
 
         let firstExample = Example("Create") {
 
-            enum MyError: Error {
-                case anError
-            }
             let disposeBag = DisposeBag()
 
             Observable<String>.create { observer in
@@ -185,10 +179,6 @@ struct TopicObservables: Topic {
         let thirdExample = Example("Single") {
 
             let disposeBag = DisposeBag()
-
-            enum FileReadError: Error {
-                case fileNotFound, unreadable, encodingFailed
-            }
 
             func loadText(from name: String) -> Single<String> {
 

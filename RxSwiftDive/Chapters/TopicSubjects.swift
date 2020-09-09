@@ -12,22 +12,17 @@ import RxRelay
 
 struct TopicSubjects: Topic {
 
-    // MARK: - typealias
-    typealias Example = (title: String, action: () -> Void)
-
     // MARK: - Properties
     var title: String { return String(describing: TopicSubjects.self) }
-    private var examples: [Example] = []
     var examplesWrapper: [Example] { return examples }
 
-    enum MyError: Error {
-      case anError
-    }
+    private var examples: [Example] = []
 
     // MARK: - Public functions
     public mutating func learning() {
         learningSubjects()
         learningRelays()
+        takeTheChallenges()
     }
 
     // MARK: - Module functions
@@ -160,5 +155,120 @@ struct TopicSubjects: Topic {
 
         examples.append(firstExample)
         examples.append(secondExample)
+    }
+
+    mutating private func takeTheChallenges() {
+
+        var score = 0
+//        defer { score = 0 }
+
+        let firstChallenge = Example("Challenge #1") {
+
+            let disposeBag = DisposeBag()
+            let dealtHand = PublishSubject<[(String, Int)]>()
+
+            func deal(_ cardCount: UInt) {
+                var deck = cards
+                var cardsRemaining = deck.count
+                var hand = [(String, Int)]()
+
+                for _ in 0..<cardCount {
+                    let randomIndex = Int.random(in: 0..<cardsRemaining)
+                    hand.append(deck[randomIndex])
+                    deck.remove(at: randomIndex)
+                    cardsRemaining -= 1
+                }
+
+                // Add code to update dealtHand here
+                let total = hand.reduce(into: 0) { $0 += $1.1 }
+                total > 21 ? dealtHand.onError(HandError.busted(points: total)) : dealtHand.onNext(hand)
+            }
+
+            // Add subscription to dealtHand here
+            dealtHand.subscribe(
+                onNext: {
+                    score += 1
+                    print(cardString(for: $0), points(for: $0))
+                    if score == 5 { print("Incredible! Congratulations! =)") }
+            },
+                onError: { print("Game Over, ", $0) },
+                onCompleted: { print("Comleted") },
+                onDisposed: { print("Disposed") })
+                .disposed(by: disposeBag)
+
+            deal(3)
+            deal(3)
+            deal(3)
+            deal(3)
+            deal(3)
+
+            score = 0
+        }
+
+        let secondChallenge = Example("Challenge #2") {
+
+            // Create userSession BehaviorRelay of type UserSession with initial value of .loggedOut
+            let disposeBag = DisposeBag()
+            let relay = BehaviorRelay<UserSession>(value: .loggedOut)
+
+            // Subscribe to receive next events from userSession
+            relay.subscribe(
+                onNext: { print("subscribe - ", $0) },
+                onError: { print("subscribe - ", $0) })
+                .disposed(by: disposeBag)
+
+            func logInWith(username: String,
+                           password: String,
+                           completion: (Error?) -> Void) {
+
+                guard username == "johnny@appleseed.com",
+                    password == "appleseed" else {
+                        completion(LoginError.invalidCredentials)
+                        return
+                }
+
+                // Update userSession
+                relay.accept(.loggedIn)
+                completion(nil)
+            }
+
+            func logOut() {
+                // Update userSession
+                relay.accept(.loggedOut)
+            }
+
+            func performActionRequiringLoggedInUser(_ action: () -> Void) {
+
+                // Ensure that userSession is loggedIn and then execute action()
+                guard relay.value == .loggedIn else {
+                    print("access denied")
+                    return
+                }
+                print("access is allowed")
+                action()
+            }
+
+            for index in 1...2 {
+                let password = index % 2 == 0 ? "appleseed" : "password"
+
+                logInWith(username: "johnny@appleseed.com",
+                          password: password) { error in
+
+                            guard error == nil else {
+                                print(error!)
+                                return
+                            }
+
+                            print("User logged in.")
+                }
+
+                performActionRequiringLoggedInUser {
+                    print("Successfully did something only a logged in user can do.")
+                }
+            }
+        }
+
+        examples.append(firstChallenge)
+        examples.append(secondChallenge)
     }
 }
