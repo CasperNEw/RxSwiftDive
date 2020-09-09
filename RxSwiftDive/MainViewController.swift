@@ -15,7 +15,9 @@ class MainViewController: UIViewController {
     lazy var tableView = UITableView()
 
     var topicObservables = TopicObservables()
-    var sourceData: [(label: String, action: () -> Void)] = []
+    var topicSubjects = TopicSubjects()
+
+    var topics: [Topic] = []
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -41,25 +43,37 @@ class MainViewController: UIViewController {
     }
 
     private func learning() {
+
         topicObservables.learning()
-        sourceData = topicObservables.examplesWrapper
+        topicSubjects.learning()
+
+        topics.append(topicObservables)
+        topics.append(topicSubjects)
     }
 }
 
 // MARK: - TableView
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        topics[section].title.titleCase()
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        topics.count
+    }
+
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
 
-        return sourceData.count
+        return topics[section].examplesWrapper.count
     }
 
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = UITableViewCell()
-        cell.textLabel?.text = sourceData[indexPath.row].label
+        cell.textLabel?.text = topics[indexPath.section].examplesWrapper[indexPath.row].0
         cell.selectionStyle = .none
         return cell
     }
@@ -67,9 +81,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
 
-        let example = sourceData[indexPath.row]
+        let example = topics[indexPath.section].examplesWrapper[indexPath.row]
 
-        print("\n--- Example of:", example.label, "---")
+        print("\n--- Example of:", example.title, "---")
         example.action()
     }
 }

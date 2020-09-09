@@ -9,12 +9,19 @@
 import Foundation
 import RxSwift
 
-struct TopicObservables {
+protocol Topic {
+    mutating func learning()
+    var title: String { get }
+    var examplesWrapper: [(title: String, action: () -> Void)] { get }
+}
+
+struct TopicObservables: Topic {
 
     // MARK: - typealias
-    typealias Example = (String, () -> Void)
+    typealias Example = (title: String, action: () -> Void)
 
     // MARK: - Properties
+    var title: String { return String(describing: TopicObservables.self) }
     private var examples: [Example] = []
     var examplesWrapper: [Example] { return examples }
 
