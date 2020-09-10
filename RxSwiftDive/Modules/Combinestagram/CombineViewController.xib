@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CombineViewController" customModule="RxSwiftDive" customModuleProvider="target">
+            <connections>
+                <outlet property="buttonClear" destination="DIx-FD-lo9" id="QQl-zh-mSp"/>
+                <outlet property="buttonSave" destination="cRh-XO-KKS" id="e3P-x0-705"/>
+                <outlet property="imagePreview" destination="FXd-00-wP4" id="WxH-fh-ZPf"/>
+                <outlet property="view" destination="QeF-tG-oKm" id="nNl-3t-Ivd"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="QeF-tG-oKm">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIx-FD-lo9">
+                    <rect key="frame" x="63.5" y="632" width="80" height="80"/>
+                    <color key="backgroundColor" red="0.67817674250000004" green="0.88699919869999999" blue="0.54654333939999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="DIx-FD-lo9" secondAttribute="height" multiplier="1:1" id="EJR-ZQ-DmO"/>
+                        <constraint firstAttribute="height" constant="80" id="w6z-HC-VCb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                    <state key="normal" title="Clear"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="40"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="actionClear" destination="-1" eventType="touchUpInside" id="23o-gR-MTB"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRh-XO-KKS">
+                    <rect key="frame" x="270.5" y="632" width="80" height="80"/>
+                    <color key="backgroundColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="cRh-XO-KKS" secondAttribute="height" multiplier="1:1" id="2RS-Be-wwo"/>
+                        <constraint firstAttribute="height" constant="80" id="STA-y7-kso"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                    <state key="normal" title="Save"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="40"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="actionSave" destination="-1" eventType="touchUpInside" id="Dxx-vz-JTA"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FXd-00-wP4">
+                    <rect key="frame" x="20" y="231" width="374" height="210"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="210" id="Xkd-4f-xPv"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="FXd-00-wP4" firstAttribute="leading" secondItem="QeF-tG-oKm" secondAttribute="leadingMargin" id="4o0-6v-zew"/>
+                <constraint firstItem="DIx-FD-lo9" firstAttribute="centerY" secondItem="QeF-tG-oKm" secondAttribute="centerY" multiplier="1.5" id="7qS-hg-qRW"/>
+                <constraint firstItem="cRh-XO-KKS" firstAttribute="centerY" secondItem="QeF-tG-oKm" secondAttribute="centerY" multiplier="1.5" id="8gS-nI-eBe"/>
+                <constraint firstItem="cRh-XO-KKS" firstAttribute="centerX" secondItem="QeF-tG-oKm" secondAttribute="centerX" multiplier="1.5" id="9ik-pe-GNt"/>
+                <constraint firstItem="FXd-00-wP4" firstAttribute="trailing" secondItem="QeF-tG-oKm" secondAttribute="trailingMargin" id="Hri-KP-BZM"/>
+                <constraint firstItem="DIx-FD-lo9" firstAttribute="centerX" secondItem="QeF-tG-oKm" secondAttribute="centerX" multiplier="0.5" id="oUf-wN-AD1"/>
+                <constraint firstItem="FXd-00-wP4" firstAttribute="centerY" secondItem="QeF-tG-oKm" secondAttribute="centerY" multiplier="0.75" id="qP6-5j-fIu"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="gss-YR-hkq"/>
+            <point key="canvasLocation" x="430" y="-534"/>
+        </view>
+    </objects>
+</document>

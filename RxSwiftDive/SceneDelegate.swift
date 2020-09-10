@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = MainViewController()
+        window?.rootViewController = createRootViewController()
 //        window?.rootViewController = TestViewController()
         window?.makeKeyAndVisible()
     }
@@ -29,4 +29,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillResignActive(_ scene: UIScene) { }
     func sceneWillEnterForeground(_ scene: UIScene) { }
     func sceneDidEnterBackground(_ scene: UIScene) { }
+
+    // MARK: - Module functions
+    private func createRootViewController() -> UIViewController {
+
+//        let viewController = BasicsViewController()
+        let viewController = CombineViewController()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.navigationBar.prefersLargeTitles = true
+
+        return navigationController
+    }
 }

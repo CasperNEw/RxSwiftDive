@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  BasicsViewController.swift
 //  RxSwiftDive
 //
 //  Created by Дмитрий Константинов on 08.09.2020.
@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class MainViewController: UIViewController {
+class BasicsViewController: UIViewController {
 
     // MARK: - Properties
     lazy var tableView = UITableView()
@@ -24,6 +24,8 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
+        navigationItem.title = "Chapters II - III"
+
         setupTableView()
         learning()
     }
@@ -53,7 +55,7 @@ class MainViewController: UIViewController {
 }
 
 // MARK: - TableView
-extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+extension BasicsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         topics[section].title.titleCase()
