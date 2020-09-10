@@ -8,15 +8,18 @@
 
 import UIKit
 
-protocol Titles: UIViewController {
-    var selfTitle: String { get }
+enum Chapter: String {
+    case two = "Chapter II"
+    case three = "Chapter III"
+    case four = "Combinestagram"
+    case five = "Chapter V"
 }
 
 class MainViewController: UIViewController {
 
     // MARK: - Properties
     lazy private var tableView = UITableView()
-    private var source: [Titles] = []
+    private var source: [Chapter] = []
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -30,8 +33,10 @@ class MainViewController: UIViewController {
 
     // MARK: - Module functions
     private func setupSourceData() {
-        source.append(BasicsViewController())
-        source.append(CombineViewController())
+        source.append(.two)
+        source.append(.three)
+        source.append(.four)
+        source.append(.five)
     }
 
     private func setupTableView() {
@@ -60,16 +65,29 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = UITableViewCell()
-        cell.textLabel?.text = source[indexPath.row].selfTitle
+        cell.textLabel?.text = source[indexPath.row].rawValue
         cell.selectionStyle = .none
         return cell
     }
 
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
+        print("didSelectRowAt - ", indexPath.row)
+
+        let viewController = { () -> UIViewController in
+            switch self.source[indexPath.row] {
+            case .two:
+                return BasicsViewController(chapter: .two)
+            case .three:
+                return BasicsViewController(chapter: .three)
+            case .four:
+                return CombineViewController()
+            case .five:
+                return BasicsViewController(chapter: .five)
+            }
+        }()
 
         navigationController?
-            .pushViewController(source[indexPath.row],
-                                animated: true)
+            .pushViewController(viewController, animated: true)
     }
 }

@@ -9,23 +9,30 @@
 import UIKit
 import SnapKit
 
-class BasicsViewController: UIViewController, Titles {
+class BasicsViewController: UIViewController {
 
     // MARK: - Properties
     lazy private var tableView = UITableView()
-
-    private var topicObservables = TopicObservables()
-    private var topicSubjects = TopicSubjects()
     private var topics: [Topic] = []
 
-    public let selfTitle = "Chapters II - III"
+    private let state: Chapter
+
+    // MARK: - Initialization
+    init(chapter: Chapter) {
+        state = chapter
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
-        title = selfTitle
+        title = state.rawValue
 
         setupTableView()
         learning()
@@ -47,11 +54,21 @@ class BasicsViewController: UIViewController, Titles {
 
     private func learning() {
 
-        topicObservables.learning()
-        topicSubjects.learning()
+        switch state {
+        case .two:
+            topics.append(TopicObservables())
+        case .three:
+            topics.append(TopicSubjects())
+        case .four:
+            break
+        case .five:
+            topics.append(TopicFiltering())
+        }
 
-        topics.append(topicObservables)
-        topics.append(topicSubjects)
+        if topics.isEmpty { return }
+        for index in 0..<topics.count {
+            topics[index].learning()
+        }
     }
 }
 
@@ -83,6 +100,7 @@ extension BasicsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
+        print("didSelectRowAt - ", indexPath.row)
 
         let example = topics[indexPath.section].examplesWrapper[indexPath.row]
 

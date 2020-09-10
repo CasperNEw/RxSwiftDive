@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxRelay
 
-class CombineViewController: UIViewController, Titles {
+class CombineViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var imagePreview: UIImageView!
