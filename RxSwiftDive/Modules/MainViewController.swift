@@ -1,37 +1,39 @@
 //
-//  BasicsViewController.swift
+//  MainViewController.swift
 //  RxSwiftDive
 //
-//  Created by Дмитрий Константинов on 08.09.2020.
+//  Created by Дмитрий Константинов on 10.09.2020.
 //  Copyright © 2020 Дмитрий Константинов. All rights reserved.
 //
 
 import UIKit
-import SnapKit
 
-class BasicsViewController: UIViewController, Titles {
+protocol Titles: UIViewController {
+    var selfTitle: String { get }
+}
+
+class MainViewController: UIViewController {
 
     // MARK: - Properties
     lazy private var tableView = UITableView()
-
-    private var topicObservables = TopicObservables()
-    private var topicSubjects = TopicSubjects()
-    private var topics: [Topic] = []
-
-    public let selfTitle = "Chapters II - III"
+    private var source: [Titles] = []
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
-        title = selfTitle
-
+        navigationItem.title = "RxSwift"
+        setupSourceData()
         setupTableView()
-        learning()
     }
 
     // MARK: - Module functions
+    private func setupSourceData() {
+        source.append(BasicsViewController())
+        source.append(CombineViewController())
+    }
+
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -44,39 +46,21 @@ class BasicsViewController: UIViewController, Titles {
             maker.top.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
-
-    private func learning() {
-
-        topicObservables.learning()
-        topicSubjects.learning()
-
-        topics.append(topicObservables)
-        topics.append(topicSubjects)
-    }
 }
 
 // MARK: - TableView
-extension BasicsViewController: UITableViewDelegate, UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        topics[section].title.titleCase()
-    }
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        topics.count
-    }
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-
-        return topics[section].examplesWrapper.count
+        source.count
     }
 
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = UITableViewCell()
-        cell.textLabel?.text = topics[indexPath.section].examplesWrapper[indexPath.row].0
+        cell.textLabel?.text = source[indexPath.row].selfTitle
         cell.selectionStyle = .none
         return cell
     }
@@ -84,9 +68,8 @@ extension BasicsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
 
-        let example = topics[indexPath.section].examplesWrapper[indexPath.row]
-
-        print("\n--- Example of:", example.title, "---")
-        example.action()
+        navigationController?
+            .pushViewController(source[indexPath.row],
+                                animated: true)
     }
 }

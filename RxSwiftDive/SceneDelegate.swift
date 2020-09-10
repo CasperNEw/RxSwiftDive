@@ -33,8 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // MARK: - Module functions
     private func createRootViewController() -> UIViewController {
 
-//        let viewController = BasicsViewController()
-        let viewController = CombineViewController()
+        let viewController = MainViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.navigationBar.prefersLargeTitles = true
 

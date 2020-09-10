@@ -11,6 +11,7 @@
 		67CFEE998FF50EB4218D2E6F /* Pods_RxSwiftDive_RxSwiftDiveUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9362AF003666F70EBCCDCC /* Pods_RxSwiftDive_RxSwiftDiveUITests.framework */; };
 		BADB27A64D8241C25A9B6CEB /* Pods_RxSwiftDive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB08CC300A446E26D856FE7B /* Pods_RxSwiftDive.framework */; };
 		DA587115250A127A00FF6F13 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA587114250A127A00FF6F13 /* UIViewController+.swift */; };
+		DA587117250A466D00FF6F13 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA587116250A466D00FF6F13 /* MainViewController.swift */; };
 		DA9FAC1B2507976400F723E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FAC1A2507976400F723E5 /* AppDelegate.swift */; };
 		DA9FAC1D2507976400F723E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FAC1C2507976400F723E5 /* SceneDelegate.swift */; };
 		DA9FAC242507976600F723E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9FAC232507976600F723E5 /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		C9830CF7EFE4A02397E96821 /* Pods-RxSwiftDive-RxSwiftDiveUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftDive-RxSwiftDiveUITests.release.xcconfig"; path = "Target Support Files/Pods-RxSwiftDive-RxSwiftDiveUITests/Pods-RxSwiftDive-RxSwiftDiveUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D12A3946C2F494A2514D42EC /* Pods-RxSwiftDive-RxSwiftDiveUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftDive-RxSwiftDiveUITests.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftDive-RxSwiftDiveUITests/Pods-RxSwiftDive-RxSwiftDiveUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DA587114250A127A00FF6F13 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		DA587116250A466D00FF6F13 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DA9FAC172507976400F723E5 /* RxSwiftDive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftDive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA9FAC1A2507976400F723E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA9FAC1C2507976400F723E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 		DACAE4892509F41100EFC7AF /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DA587116250A466D00FF6F13 /* MainViewController.swift */,
 				DA9FAC532507A93000F723E5 /* TestViewController.swift */,
 				DACAE48A2509F41D00EFC7AF /* Basics */,
 				DACAE48B2509F4AC00EFC7AF /* Combinestagram */,
@@ -551,6 +554,7 @@
 				DACAE483250907D300EFC7AF /* SupportCode.swift in Sources */,
 				DACAE4882509F3CA00EFC7AF /* PhotoWriter.swift in Sources */,
 				DAB06FDE2509FE45009005A6 /* CombineViewController.swift in Sources */,
+				DA587117250A466D00FF6F13 /* MainViewController.swift in Sources */,
 				DA9FAC562507B72B00F723E5 /* TopicSubjects.swift in Sources */,
 				DACAE4852509F36900EFC7AF /* UIImage+.swift in Sources */,
 				DA9FAC5925089A9800F723E5 /* String+.swift in Sources */,

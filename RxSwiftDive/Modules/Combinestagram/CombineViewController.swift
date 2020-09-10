@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxRelay
 
-class CombineViewController: UIViewController {
+class CombineViewController: UIViewController, Titles {
 
     // MARK: - Outlets
     @IBOutlet weak var imagePreview: UIImageView!
@@ -21,6 +21,8 @@ class CombineViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private let images = BehaviorRelay<[UIImage]>(value: [])
     private lazy var buttonAdd = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(actionAdd))
+
+    public let selfTitle = "Combinestagram"
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
