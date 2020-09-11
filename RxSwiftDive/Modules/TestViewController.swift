@@ -24,8 +24,8 @@ class TestViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .darkGray
-//        learning()
-//        challenge()
+        learning()
+        challenge()
         setupLabel()
     }
 
@@ -37,7 +37,38 @@ class TestViewController: UIViewController {
         }
     }
 
-    private func learning() { }
+    private func learning() {
+
+        let disposeBag = DisposeBag()
+        var start = 0
+        func getStartNumber() -> Int {
+            start += 1
+            return start
+        }
+
+        example(of: "piy") {
+            let numbers = Observable<Int>.create { observer in
+                let start = getStartNumber()
+                observer.onNext(start)
+                observer.onNext(start+1)
+                observer.onNext(start+2)
+                observer.onCompleted()
+                return Disposables.create()
+            }
+
+            numbers
+                .subscribe(
+                    onNext: { print("element [\($0)]") },
+                    onCompleted: { print("-------------") })
+                .disposed(by: disposeBag)
+
+            numbers
+                .subscribe(
+                    onNext: { print("element [\($0)]") },
+                    onCompleted: { print("-------------") })
+                .disposed(by: disposeBag)
+        }
+    }
 
     func challenge() { }
 }

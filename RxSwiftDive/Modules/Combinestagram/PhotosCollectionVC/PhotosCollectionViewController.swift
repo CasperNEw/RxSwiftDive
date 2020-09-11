@@ -19,6 +19,7 @@ class PhotosCollectionViewController: UICollectionViewController {
     private lazy var photos = PhotosCollectionViewController.loadPhotos()
     private lazy var imageManager = PHCachingImageManager()
     private let selectedPhotosSubject = PublishSubject<UIImage>()
+    private let disposeBag = DisposeBag()
 
     private lazy var thumbnailSize: CGSize = {
         guard let cellSize = (self.collectionViewLayout as? UICollectionViewFlowLayout)?.itemSize else {
@@ -38,6 +39,26 @@ class PhotosCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+
+        let authorized = PHPhotoLibrary.authorized.share()
+        authorized
+            .skipWhile { !$0 }
+            .take(1)
+            .subscribe(onNext: { [weak self] _ in
+                self?.photos = PhotosCollectionViewController.loadPhotos()
+                DispatchQueue.main.async {
+                    self?.collectionView?.reloadData() }
+            })
+            .disposed(by: disposeBag)
+
+        authorized
+            .skip(1)
+            .takeLast(1)
+            .filter { !$0 }
+            .subscribe(onNext: { [weak self] _ in
+                guard let errorMessage = self?.errorMessage else { return }
+                DispatchQueue.main.async(execute: errorMessage) })
+            .disposed(by: disposeBag)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -51,6 +72,18 @@ class PhotosCollectionViewController: UICollectionViewController {
         collectionView.backgroundColor = .systemBackground
         collectionView.register(UINib(nibName: PhotoCollectionViewCell.identifier, bundle: nil),
                                 forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
+    }
+
+    private func errorMessage() {
+        showAlert(title: "No access to Camera Roll",
+                  description: "You can grant access to Combinestagram from the Settings app")
+            .asObservable()
+            .take(.seconds(5), scheduler: MainScheduler.instance)
+            .subscribe(onCompleted: { [weak self] in
+                self?.dismiss(animated: true, completion: nil)
+                _ = self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 
     // MARK: UICollectionView

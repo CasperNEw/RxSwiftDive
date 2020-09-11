@@ -10,6 +10,7 @@
 		54A72D263DC07E58CEF96729 /* Pods_RxSwiftDiveTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F4272B05598B141850CB589 /* Pods_RxSwiftDiveTests.framework */; };
 		67CFEE998FF50EB4218D2E6F /* Pods_RxSwiftDive_RxSwiftDiveUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9362AF003666F70EBCCDCC /* Pods_RxSwiftDive_RxSwiftDiveUITests.framework */; };
 		BADB27A64D8241C25A9B6CEB /* Pods_RxSwiftDive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB08CC300A446E26D856FE7B /* Pods_RxSwiftDive.framework */; };
+		DA10DF68250B587E0074051E /* PHPhotoLibrary+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA10DF67250B587E0074051E /* PHPhotoLibrary+.swift */; };
 		DA49D0FE250A8569006CE628 /* TopicFiltering.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49D0FD250A8569006CE628 /* TopicFiltering.swift */; };
 		DA587115250A127A00FF6F13 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA587114250A127A00FF6F13 /* UIViewController+.swift */; };
 		DA587117250A466D00FF6F13 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA587116250A466D00FF6F13 /* MainViewController.swift */; };
@@ -60,6 +61,7 @@
 		AE3747B332B9C6F06D73F26F /* Pods-RxSwiftDive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftDive.release.xcconfig"; path = "Target Support Files/Pods-RxSwiftDive/Pods-RxSwiftDive.release.xcconfig"; sourceTree = "<group>"; };
 		C9830CF7EFE4A02397E96821 /* Pods-RxSwiftDive-RxSwiftDiveUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftDive-RxSwiftDiveUITests.release.xcconfig"; path = "Target Support Files/Pods-RxSwiftDive-RxSwiftDiveUITests/Pods-RxSwiftDive-RxSwiftDiveUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D12A3946C2F494A2514D42EC /* Pods-RxSwiftDive-RxSwiftDiveUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftDive-RxSwiftDiveUITests.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftDive-RxSwiftDiveUITests/Pods-RxSwiftDive-RxSwiftDiveUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DA10DF67250B587E0074051E /* PHPhotoLibrary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHPhotoLibrary+.swift"; sourceTree = "<group>"; };
 		DA49D0FD250A8569006CE628 /* TopicFiltering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicFiltering.swift; sourceTree = "<group>"; };
 		DA587114250A127A00FF6F13 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		DA587116250A466D00FF6F13 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				DA9FAC5825089A9800F723E5 /* String+.swift */,
 				DACAE4842509F36900EFC7AF /* UIImage+.swift */,
 				DA587114250A127A00FF6F13 /* UIViewController+.swift */,
+				DA10DF67250B587E0074051E /* PHPhotoLibrary+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				DA587117250A466D00FF6F13 /* MainViewController.swift in Sources */,
 				DA9FAC562507B72B00F723E5 /* TopicSubjects.swift in Sources */,
 				DACAE4852509F36900EFC7AF /* UIImage+.swift in Sources */,
+				DA10DF68250B587E0074051E /* PHPhotoLibrary+.swift in Sources */,
 				DA9FAC5925089A9800F723E5 /* String+.swift in Sources */,
 				DACAE49E2509F94800EFC7AF /* PhotoCollectionViewCell.swift in Sources */,
 				DA9FAC1D2507976400F723E5 /* SceneDelegate.swift in Sources */,
