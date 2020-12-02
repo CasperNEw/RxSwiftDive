@@ -44,10 +44,12 @@ class PhotosCollectionViewController: UICollectionViewController {
         authorized
             .skipWhile { !$0 }
             .take(1)
+            .do(onNext: { [weak self] _ in
+                    self?.photos = PhotosCollectionViewController.loadPhotos()
+            })
+            .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] _ in
-                self?.photos = PhotosCollectionViewController.loadPhotos()
-                DispatchQueue.main.async {
-                    self?.collectionView?.reloadData() }
+                    self?.collectionView?.reloadData()
             })
             .disposed(by: disposeBag)
 
@@ -55,9 +57,10 @@ class PhotosCollectionViewController: UICollectionViewController {
             .skip(1)
             .takeLast(1)
             .filter { !$0 }
+            .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] _ in
-                guard let errorMessage = self?.errorMessage else { return }
-                DispatchQueue.main.async(execute: errorMessage) })
+                self?.errorMessage()
+            })
             .disposed(by: disposeBag)
     }
 
