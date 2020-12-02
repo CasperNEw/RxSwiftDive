@@ -26,6 +26,7 @@
 		DA9FAC542507A93000F723E5 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FAC532507A93000F723E5 /* TestViewController.swift */; };
 		DA9FAC562507B72B00F723E5 /* TopicSubjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FAC552507B72B00F723E5 /* TopicSubjects.swift */; };
 		DA9FAC5925089A9800F723E5 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FAC5825089A9800F723E5 /* String+.swift */; };
+		DAA43C1225778A4C0086F179 /* TopicTransforming.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA43C1125778A4C0086F179 /* TopicTransforming.swift */; };
 		DAB06FDE2509FE45009005A6 /* CombineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB06FDC2509FE45009005A6 /* CombineViewController.swift */; };
 		DAB06FDF2509FE45009005A6 /* CombineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB06FDD2509FE45009005A6 /* CombineViewController.xib */; };
 		DACAE483250907D300EFC7AF /* SupportCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACAE482250907D300EFC7AF /* SupportCode.swift */; };
@@ -83,6 +84,7 @@
 		DA9FAC532507A93000F723E5 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		DA9FAC552507B72B00F723E5 /* TopicSubjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicSubjects.swift; sourceTree = "<group>"; };
 		DA9FAC5825089A9800F723E5 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		DAA43C1125778A4C0086F179 /* TopicTransforming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTransforming.swift; sourceTree = "<group>"; };
 		DAB06FDC2509FE45009005A6 /* CombineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineViewController.swift; sourceTree = "<group>"; };
 		DAB06FDD2509FE45009005A6 /* CombineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CombineViewController.xib; sourceTree = "<group>"; };
 		DACAE482250907D300EFC7AF /* SupportCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportCode.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				DA9FAC4E250799D000F723E5 /* TopicObservables.swift */,
 				DA9FAC552507B72B00F723E5 /* TopicSubjects.swift */,
 				DA49D0FD250A8569006CE628 /* TopicFiltering.swift */,
+				DAA43C1125778A4C0086F179 /* TopicTransforming.swift */,
 			);
 			path = Chapters;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				DA49D0FE250A8569006CE628 /* TopicFiltering.swift in Sources */,
 				DA9FAC4F250799D000F723E5 /* TopicObservables.swift in Sources */,
 				DA9FAC4C2507994800F723E5 /* BasicsViewController.swift in Sources */,
+				DAA43C1225778A4C0086F179 /* TopicTransforming.swift in Sources */,
 				DACAE4992509F71900EFC7AF /* PhotosCollectionViewController.swift in Sources */,
 				DA9FAC1B2507976400F723E5 /* AppDelegate.swift in Sources */,
 				DACAE483250907D300EFC7AF /* SupportCode.swift in Sources */,

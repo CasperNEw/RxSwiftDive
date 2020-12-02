@@ -63,6 +63,8 @@ class BasicsViewController: UIViewController {
             break
         case .five:
             topics.append(TopicFiltering())
+        case .seven:
+            topics.append(TopicTransforming())
         }
 
         if topics.isEmpty { return }
