@@ -172,6 +172,10 @@ class GitFeedViewController: UIViewController {
             updatedEvents += events
         }
 
+        /// stay unique
+        let eventSet = Set(updatedEvents)
+        updatedEvents = Array(eventSet)
+
         if updatedEvents.count > 50 {
             updatedEvents = Array(updatedEvents.prefix(upTo: 50))
         }

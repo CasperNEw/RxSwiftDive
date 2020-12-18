@@ -103,3 +103,14 @@ extension Event {
             .lowercased()
     }
 }
+
+extension Event: Hashable {
+
+    static func == (lhs: Event, rhs: Event) -> Bool {
+        lhs.actor.name == rhs.actor.name && lhs.detail == rhs.detail
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(actor.name + detail)
+    }
+}
