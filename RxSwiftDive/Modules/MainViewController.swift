@@ -14,6 +14,7 @@ enum Chapter: String {
     case four = "Combinestagram"
     case five = "Chapter V"
     case seven = "Chapter VII"
+    case eight = "GitFeed"
 }
 
 class MainViewController: UIViewController {
@@ -39,6 +40,7 @@ class MainViewController: UIViewController {
         source.append(.four)
         source.append(.five)
         source.append(.seven)
+        source.append(.eight)
     }
 
     private func setupTableView() {
@@ -88,6 +90,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
                 return BasicsViewController(chapter: .five)
             case .seven:
                 return BasicsViewController(chapter: .seven)
+            case .eight:
+                return GitFeedViewController()
             }
         }()
 

@@ -14,6 +14,11 @@
 		DA49D0FE250A8569006CE628 /* TopicFiltering.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49D0FD250A8569006CE628 /* TopicFiltering.swift */; };
 		DA587115250A127A00FF6F13 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA587114250A127A00FF6F13 /* UIViewController+.swift */; };
 		DA587117250A466D00FF6F13 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA587116250A466D00FF6F13 /* MainViewController.swift */; };
+		DA854F01258B37C100FBF9F7 /* GitFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA854EFF258B37C100FBF9F7 /* GitFeedViewController.swift */; };
+		DA854F02258B37C100FBF9F7 /* GitFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA854F00258B37C100FBF9F7 /* GitFeedViewController.xib */; };
+		DA854F09258B38BE00FBF9F7 /* GitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA854F07258B38BE00FBF9F7 /* GitTableViewCell.swift */; };
+		DA854F0A258B38BE00FBF9F7 /* GitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA854F08258B38BE00FBF9F7 /* GitTableViewCell.xib */; };
+		DA854F0F258B554500FBF9F7 /* UITable&UICollection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA854F0E258B554500FBF9F7 /* UITable&UICollection+.swift */; };
 		DA9FAC1B2507976400F723E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FAC1A2507976400F723E5 /* AppDelegate.swift */; };
 		DA9FAC1D2507976400F723E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FAC1C2507976400F723E5 /* SceneDelegate.swift */; };
 		DA9FAC242507976600F723E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9FAC232507976600F723E5 /* Assets.xcassets */; };
@@ -66,6 +71,11 @@
 		DA49D0FD250A8569006CE628 /* TopicFiltering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicFiltering.swift; sourceTree = "<group>"; };
 		DA587114250A127A00FF6F13 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		DA587116250A466D00FF6F13 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DA854EFF258B37C100FBF9F7 /* GitFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitFeedViewController.swift; sourceTree = "<group>"; };
+		DA854F00258B37C100FBF9F7 /* GitFeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitFeedViewController.xib; sourceTree = "<group>"; };
+		DA854F07258B38BE00FBF9F7 /* GitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitTableViewCell.swift; sourceTree = "<group>"; };
+		DA854F08258B38BE00FBF9F7 /* GitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitTableViewCell.xib; sourceTree = "<group>"; };
+		DA854F0E258B554500FBF9F7 /* UITable&UICollection+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITable&UICollection+.swift"; sourceTree = "<group>"; };
 		DA9FAC172507976400F723E5 /* RxSwiftDive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftDive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA9FAC1A2507976400F723E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA9FAC1C2507976400F723E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +158,25 @@
 				F0B1454E0D882788AFEC0D90 /* Pods-RxSwiftDiveTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DA854EFB258B35FB00FBF9F7 /* GitFeed */ = {
+			isa = PBXGroup;
+			children = (
+				DA854F06258B389D00FBF9F7 /* Cell */,
+				DA854EFF258B37C100FBF9F7 /* GitFeedViewController.swift */,
+				DA854F00258B37C100FBF9F7 /* GitFeedViewController.xib */,
+			);
+			path = GitFeed;
+			sourceTree = "<group>";
+		};
+		DA854F06258B389D00FBF9F7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DA854F07258B38BE00FBF9F7 /* GitTableViewCell.swift */,
+				DA854F08258B38BE00FBF9F7 /* GitTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		DA9FAC0E2507976400F723E5 = {
@@ -233,6 +262,7 @@
 				DACAE4842509F36900EFC7AF /* UIImage+.swift */,
 				DA587114250A127A00FF6F13 /* UIViewController+.swift */,
 				DA10DF67250B587E0074051E /* PHPhotoLibrary+.swift */,
+				DA854F0E258B554500FBF9F7 /* UITable&UICollection+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -252,6 +282,7 @@
 				DA9FAC532507A93000F723E5 /* TestViewController.swift */,
 				DACAE48A2509F41D00EFC7AF /* Basics */,
 				DACAE48B2509F4AC00EFC7AF /* Combinestagram */,
+				DA854EFB258B35FB00FBF9F7 /* GitFeed */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -406,7 +437,9 @@
 			files = (
 				DA9FAC5225079F2500F723E5 /* Copyright.txt in Resources */,
 				DACAE49F2509F94800EFC7AF /* PhotoCollectionViewCell.xib in Resources */,
+				DA854F02258B37C100FBF9F7 /* GitFeedViewController.xib in Resources */,
 				DAB06FDF2509FE45009005A6 /* CombineViewController.xib in Resources */,
+				DA854F0A258B38BE00FBF9F7 /* GitTableViewCell.xib in Resources */,
 				DA9FAC272507976600F723E5 /* LaunchScreen.storyboard in Resources */,
 				DA9FAC242507976600F723E5 /* Assets.xcassets in Resources */,
 				DACAE49A2509F71900EFC7AF /* PhotosCollectionViewController.xib in Resources */,
@@ -554,8 +587,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA854F09258B38BE00FBF9F7 /* GitTableViewCell.swift in Sources */,
 				DA587115250A127A00FF6F13 /* UIViewController+.swift in Sources */,
 				DA9FAC542507A93000F723E5 /* TestViewController.swift in Sources */,
+				DA854F01258B37C100FBF9F7 /* GitFeedViewController.swift in Sources */,
 				DA49D0FE250A8569006CE628 /* TopicFiltering.swift in Sources */,
 				DA9FAC4F250799D000F723E5 /* TopicObservables.swift in Sources */,
 				DA9FAC4C2507994800F723E5 /* BasicsViewController.swift in Sources */,
@@ -569,6 +604,7 @@
 				DA9FAC562507B72B00F723E5 /* TopicSubjects.swift in Sources */,
 				DACAE4852509F36900EFC7AF /* UIImage+.swift in Sources */,
 				DA10DF68250B587E0074051E /* PHPhotoLibrary+.swift in Sources */,
+				DA854F0F258B554500FBF9F7 /* UITable&UICollection+.swift in Sources */,
 				DA9FAC5925089A9800F723E5 /* String+.swift in Sources */,
 				DACAE49E2509F94800EFC7AF /* PhotoCollectionViewCell.swift in Sources */,
 				DA9FAC1D2507976400F723E5 /* SceneDelegate.swift in Sources */,
