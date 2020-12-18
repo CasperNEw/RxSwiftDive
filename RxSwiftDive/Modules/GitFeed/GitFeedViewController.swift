@@ -16,6 +16,10 @@ class GitFeedViewController: UIViewController {
 
     // MARK: - Properties
     private let repo = "ReactiveX/RxSwift"
+    private lazy var eventsFileUrl = cachedFileUrl("events.json")
+    private lazy var modifiedFileUrl = cachedFileUrl("modified.txt")
+
+    private let lastModified = BehaviorRelay<String?>(value: nil)
     private let events = BehaviorRelay<[Event]>(value: [])
     private let bag = DisposeBag()
 
@@ -24,12 +28,18 @@ class GitFeedViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = repo
         navigationItem.largeTitleDisplayMode = .never
+        fetchFromPlist()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         setupTableView()
+
+        if let lastModifiedString = try? String(contentsOf: modifiedFileUrl, encoding: .utf8) {
+            lastModified.accept(lastModifiedString)
+        }
+
         refresh()
     }
 
@@ -75,32 +85,67 @@ class GitFeedViewController: UIViewController {
     }
 
     // MARK: - Fetch & Process
-    func fetchEvents(repo: String) {
+    private func fetchEvents(repo: String) {
 
         let response = Observable.from([repo])
-            .map(urlRequestFromString)
+            .map(createRequest)
             .flatMap { URLSession.shared.rx.response(request: $0) }
             .share(replay: 1)
 
         response
             .filter(ignoreResponseErrors)
             .compactMap(parseJson)
-            .subscribe(onNext: (processEvents))
+            .subscribe(onNext: processEvents)
+            .disposed(by: bag)
+
+        response
+            .filter(ignoreHeaderErrors)
+            .flatMap(parseHeader)
+            .subscribe(onNext: processHeader)
             .disposed(by: bag)
     }
 
+    private func cachedFileUrl(_ fileName: String) -> URL {
+        FileManager.default
+            .urls(for: .cachesDirectory, in: .allDomainsMask)
+            .first!
+            .appendingPathComponent(fileName)
+    }
+
+    private func fetchFromPlist() {
+        if let eventsData = try? Data(contentsOf: eventsFileUrl),
+           let persistedEvents = try? JSONDecoder().decode([Event].self, from: eventsData) {
+            events.accept(persistedEvents)
+        }
+    }
+
     // MARK: - Helper Blocks
-    let urlRequestFromString: (String) -> (URLRequest) = { repo in
+    lazy var createRequest: (String) -> (URLRequest) = { [weak self] repo in
         let url = URL(string: "https://api.github.com/repos/\(repo)/events")!
-        return URLRequest(url: url)
+        var request = URLRequest(url: url)
+        if let modifiedHeader = self?.lastModified.value {
+            request.addValue(modifiedHeader, forHTTPHeaderField: "Last-Modified")
+        }
+        return request
     }
 
     let ignoreResponseErrors: (HTTPURLResponse, Data) -> Bool = { response, _ in
         return 200..<300 ~= response.statusCode
     }
 
+    let ignoreHeaderErrors: (HTTPURLResponse, Data) -> Bool = { response, _ in
+        return 200..<400 ~= response.statusCode
+    }
+
     let parseJson: (HTTPURLResponse, Data) -> ([Event]?) = { _, data in
         return try? JSONDecoder().decode([Event].self, from: data)
+    }
+
+    let parseHeader: (HTTPURLResponse, Data) -> Observable<String> = { response, _ in
+        guard let value = response.allHeaderFields["Last-Modified"] as? String else {
+            return Observable.empty()
+        }
+        return Observable.just(value)
     }
 
     lazy var processEvents: ([Event]) -> Void = { [weak self] newEvents in
@@ -121,7 +166,16 @@ class GitFeedViewController: UIViewController {
             self?.tableView.refreshControl?.endRefreshing()
         }
 
-        //        let eventsArray = updatedEvents.map { $0.dictionary } as NSArray
-        //        eventsArray.write(to: eventsFileURL, atomically: true)
+        if let eventData = try? JSONEncoder().encode(updatedEvents) {
+            guard let url = self?.eventsFileUrl else { return }
+            try? eventData.write(to: url, options: .atomicWrite)
+        }
+    }
+
+    lazy var processHeader: (String) -> Void = { [weak self] modifiedHeader in
+        guard let self = self else { return }
+
+        self.lastModified.accept(modifiedHeader)
+        try? modifiedHeader.write(to: self.modifiedFileUrl, atomically: true, encoding: .utf8)
     }
 }

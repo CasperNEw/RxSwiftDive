@@ -13,7 +13,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="KGk-i7-Jjw" customClass="GitTableViewCell" customModule="RxSwiftDive" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -43,7 +43,7 @@
                     <constraint firstItem="CGR-Qk-KNR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="KoP-5T-une"/>
                     <constraint firstItem="l1R-UA-gDi" firstAttribute="top" secondItem="CGR-Qk-KNR" secondAttribute="bottom" constant="4" id="Lc7-2O-oiT"/>
                     <constraint firstItem="CGR-Qk-KNR" firstAttribute="leading" secondItem="6yN-sW-1bg" secondAttribute="trailing" constant="16" id="Pzn-oR-EU9"/>
-                    <constraint firstAttribute="bottom" secondItem="6yN-sW-1bg" secondAttribute="bottom" constant="10" id="Vdu-px-GLf"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="6yN-sW-1bg" secondAttribute="bottom" constant="10" id="Vdu-px-GLf"/>
                     <constraint firstItem="6yN-sW-1bg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="dN1-sG-BB6"/>
                     <constraint firstItem="6yN-sW-1bg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="dbF-I0-gwg"/>
                 </constraints>
