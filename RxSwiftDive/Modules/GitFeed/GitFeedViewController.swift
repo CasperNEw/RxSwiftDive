@@ -22,7 +22,8 @@ class GitFeedViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "GitFeed"
+        navigationItem.title = repo
+        navigationItem.largeTitleDisplayMode = .never
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -35,6 +36,8 @@ class GitFeedViewController: UIViewController {
     // MARK: - Module functions
     private func setupTableView() {
 
+        tableView.tableFooterView = UIView()
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         tableView.register(GitTableViewCell.self)
         setupRefreshControl()
 
@@ -46,7 +49,7 @@ class GitFeedViewController: UIViewController {
 
                 cell.configure(title: event.actor.name,
                                detail: event.detail,
-                               avatar: event.actor.avatar)
+                               url: event.actor.avatar)
                 return cell
             }
             .disposed(by: bag)
@@ -57,8 +60,7 @@ class GitFeedViewController: UIViewController {
         let refreshControl = UIRefreshControl()
         tableView.refreshControl = refreshControl
 
-        refreshControl.backgroundColor = UIColor(white: 0.98, alpha: 1.0)
-        refreshControl.tintColor = UIColor.darkGray
+        refreshControl.tintColor = .darkGray
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
@@ -73,6 +75,53 @@ class GitFeedViewController: UIViewController {
     }
 
     // MARK: - Fetch & Process
-    func fetchEvents(repo: String) { }
-    func processEvents(_ newEvents: [Event]) { }
+    func fetchEvents(repo: String) {
+
+        let response = Observable.from([repo])
+            .map(urlRequestFromString)
+            .flatMap { URLSession.shared.rx.response(request: $0) }
+            .share(replay: 1)
+
+        response
+            .filter(ignoreResponseErrors)
+            .compactMap(parseJson)
+            .subscribe(onNext: (processEvents))
+            .disposed(by: bag)
+    }
+
+    // MARK: - Helper Blocks
+    let urlRequestFromString: (String) -> (URLRequest) = { repo in
+        let url = URL(string: "https://api.github.com/repos/\(repo)/events")!
+        return URLRequest(url: url)
+    }
+
+    let ignoreResponseErrors: (HTTPURLResponse, Data) -> Bool = { response, _ in
+        return 200..<300 ~= response.statusCode
+    }
+
+    let parseJson: (HTTPURLResponse, Data) -> ([Event]?) = { _, data in
+        return try? JSONDecoder().decode([Event].self, from: data)
+    }
+
+    lazy var processEvents: ([Event]) -> Void = { [weak self] newEvents in
+
+        var updatedEvents = newEvents
+        if let events = self?.events.value {
+            updatedEvents += events
+        }
+
+        if updatedEvents.count > 50 {
+            updatedEvents = Array(updatedEvents.prefix(upTo: 50))
+        }
+
+        self?.events.accept(updatedEvents)
+
+        DispatchQueue.main.async {
+            self?.tableView.reloadData()
+            self?.tableView.refreshControl?.endRefreshing()
+        }
+
+        //        let eventsArray = updatedEvents.map { $0.dictionary } as NSArray
+        //        eventsArray.write(to: eventsFileURL, atomically: true)
+    }
 }

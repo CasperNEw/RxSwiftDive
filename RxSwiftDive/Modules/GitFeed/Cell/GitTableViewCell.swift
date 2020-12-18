@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class GitTableViewCell: UITableViewCell {
 
@@ -19,15 +20,16 @@ class GitTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
+        userImageView.sd_imageTransition = .fade
     }
 
     // MARK: - Public functions
     public func configure(title: String,
                           detail: String,
-                          avatar: URL) {
+                          url: URL) {
 
         titleLabel.text = title
         detailLabel.text = detail
-        print(avatar.absoluteString)
+        userImageView.sd_setImage(with: url)
     }
 }
