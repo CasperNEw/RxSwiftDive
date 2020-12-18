@@ -15,7 +15,7 @@ class GitFeedViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     // MARK: - Properties
-    private let repo = "ReactiveX/RxSwift"
+    private let navTitle = "ReactiveX/RxSwift"
     private lazy var eventsFileUrl = cachedFileUrl("events.json")
     private lazy var modifiedFileUrl = cachedFileUrl("modified.txt")
 
@@ -26,7 +26,7 @@ class GitFeedViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = repo
+        navigationItem.title = navTitle
         navigationItem.largeTitleDisplayMode = .never
         fetchFromPlist()
     }
@@ -79,22 +79,26 @@ class GitFeedViewController: UIViewController {
     @objc func refresh() {
 
         DispatchQueue.global(qos: .default).async { [weak self] in
-            guard let self = self else { return }
-            self.fetchEvents(repo: self.repo)
+            self?.fetchEvents()
         }
     }
 
     // MARK: - Fetch & Process
-    private func fetchEvents(repo: String) {
+    private func fetchEvents() {
 
-        let response = Observable.from([repo])
-            .map(createRequest)
+        let topRepos = "https://api.github.com/search/repositories?q=language:swift&per_page=5"
+
+        let response = Observable.from([topRepos])
+            .map(createTopRequest)
+            .flatMap { URLSession.shared.rx.json(request: $0) }
+            .flatMap(parseTopJson)
+            .map(createRepoRequest)
             .flatMap { URLSession.shared.rx.response(request: $0) }
             .share(replay: 1)
 
         response
             .filter(ignoreResponseErrors)
-            .compactMap(parseJson)
+            .compactMap(parseRepoJson)
             .subscribe(onNext: processEvents)
             .disposed(by: bag)
 
@@ -120,8 +124,13 @@ class GitFeedViewController: UIViewController {
     }
 
     // MARK: - Helper Blocks
-    lazy var createRequest: (String) -> (URLRequest) = { [weak self] repo in
-        let url = URL(string: "https://api.github.com/repos/\(repo)/events")!
+    lazy var createTopRequest: (String) -> (URLRequest) = { topUrls in
+        let url = URL(string: topUrls)!
+        return URLRequest(url: url)
+    }
+
+    lazy var createRepoRequest: (String) -> (URLRequest) = { [weak self] repo in
+        let url = URL(string: "https://api.github.com/repos/\(repo)/events?per_page=5")!
         var request = URLRequest(url: url)
         if let modifiedHeader = self?.lastModified.value {
             request.addValue(modifiedHeader, forHTTPHeaderField: "Last-Modified")
@@ -137,7 +146,15 @@ class GitFeedViewController: UIViewController {
         return 200..<400 ~= response.statusCode
     }
 
-    let parseJson: (HTTPURLResponse, Data) -> ([Event]?) = { _, data in
+    let parseTopJson: (Any) -> (Observable<String>) = { response in
+        guard let response = response as? [String: Any],
+              let items = response["items"] as? [[String: Any]]
+        else { return Observable.empty() }
+
+        return Observable.from(items.compactMap { $0["full_name"] as? String })
+    }
+
+    let parseRepoJson: (HTTPURLResponse, Data) -> ([Event]?) = { _, data in
         return try? JSONDecoder().decode([Event].self, from: data)
     }
 
