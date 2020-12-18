@@ -14,6 +14,7 @@
 		DA49D0FE250A8569006CE628 /* TopicFiltering.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49D0FD250A8569006CE628 /* TopicFiltering.swift */; };
 		DA587115250A127A00FF6F13 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA587114250A127A00FF6F13 /* UIViewController+.swift */; };
 		DA587117250A466D00FF6F13 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA587116250A466D00FF6F13 /* MainViewController.swift */; };
+		DA5FC2A7258CD89D00FE7CCF /* TopicCombining.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5FC2A6258CD89D00FE7CCF /* TopicCombining.swift */; };
 		DA854F01258B37C100FBF9F7 /* GitFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA854EFF258B37C100FBF9F7 /* GitFeedViewController.swift */; };
 		DA854F02258B37C100FBF9F7 /* GitFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA854F00258B37C100FBF9F7 /* GitFeedViewController.xib */; };
 		DA854F09258B38BE00FBF9F7 /* GitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA854F07258B38BE00FBF9F7 /* GitTableViewCell.swift */; };
@@ -71,6 +72,7 @@
 		DA49D0FD250A8569006CE628 /* TopicFiltering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicFiltering.swift; sourceTree = "<group>"; };
 		DA587114250A127A00FF6F13 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		DA587116250A466D00FF6F13 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DA5FC2A6258CD89D00FE7CCF /* TopicCombining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCombining.swift; sourceTree = "<group>"; };
 		DA854EFF258B37C100FBF9F7 /* GitFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitFeedViewController.swift; sourceTree = "<group>"; };
 		DA854F00258B37C100FBF9F7 /* GitFeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitFeedViewController.xib; sourceTree = "<group>"; };
 		DA854F07258B38BE00FBF9F7 /* GitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitTableViewCell.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				DA9FAC552507B72B00F723E5 /* TopicSubjects.swift */,
 				DA49D0FD250A8569006CE628 /* TopicFiltering.swift */,
 				DAA43C1125778A4C0086F179 /* TopicTransforming.swift */,
+				DA5FC2A6258CD89D00FE7CCF /* TopicCombining.swift */,
 			);
 			path = Chapters;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				DAA43C1225778A4C0086F179 /* TopicTransforming.swift in Sources */,
 				DACAE4992509F71900EFC7AF /* PhotosCollectionViewController.swift in Sources */,
 				DA9FAC1B2507976400F723E5 /* AppDelegate.swift in Sources */,
+				DA5FC2A7258CD89D00FE7CCF /* TopicCombining.swift in Sources */,
 				DACAE483250907D300EFC7AF /* SupportCode.swift in Sources */,
 				DACAE4882509F3CA00EFC7AF /* PhotoWriter.swift in Sources */,
 				DAB06FDE2509FE45009005A6 /* CombineViewController.swift in Sources */,
