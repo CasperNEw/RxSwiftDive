@@ -11,7 +11,21 @@
 		67CFEE998FF50EB4218D2E6F /* Pods_RxSwiftDive_RxSwiftDiveUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9362AF003666F70EBCCDCC /* Pods_RxSwiftDive_RxSwiftDiveUITests.framework */; };
 		BADB27A64D8241C25A9B6CEB /* Pods_RxSwiftDive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB08CC300A446E26D856FE7B /* Pods_RxSwiftDive.framework */; };
 		DA10DF68250B587E0074051E /* PHPhotoLibrary+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA10DF67250B587E0074051E /* PHPhotoLibrary+.swift */; };
+		DA42D28725A6F4FD003C80F0 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA42D28625A6F4FD003C80F0 /* DownloadView.swift */; };
 		DA49D0FE250A8569006CE628 /* TopicFiltering.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49D0FD250A8569006CE628 /* TopicFiltering.swift */; };
+		DA4D90C025A5FB5C000B454D /* OurPlanetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D90BE25A5FB5C000B454D /* OurPlanetViewController.swift */; };
+		DA4D90C125A5FB5C000B454D /* OurPlanetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4D90BF25A5FB5C000B454D /* OurPlanetViewController.xib */; };
+		DA4D90C725A5FC5D000B454D /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D90C525A5FC5D000B454D /* EventViewController.swift */; };
+		DA4D90C825A5FC5D000B454D /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4D90C625A5FC5D000B454D /* EventViewController.xib */; };
+		DA4D90D825A5FEDE000B454D /* EOEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D90D225A5FEDD000B454D /* EOEvent.swift */; };
+		DA4D90D925A5FEDE000B454D /* EONET.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D90D325A5FEDD000B454D /* EONET.swift */; };
+		DA4D90DA25A5FEDE000B454D /* EOLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D90D425A5FEDD000B454D /* EOLocation.swift */; };
+		DA4D90DB25A5FEDE000B454D /* EOError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D90D525A5FEDD000B454D /* EOError.swift */; };
+		DA4D90DC25A5FEDE000B454D /* EOEnvelope.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D90D625A5FEDD000B454D /* EOEnvelope.swift */; };
+		DA4D90DD25A5FEDE000B454D /* EOCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D90D725A5FEDE000B454D /* EOCategory.swift */; };
+		DA4D90E825A60420000B454D /* Copyright_.txt in Resources */ = {isa = PBXBuildFile; fileRef = DA4D90E725A60420000B454D /* Copyright_.txt */; };
+		DA4D910125A61BA1000B454D /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D90FF25A61BA1000B454D /* EventTableViewCell.swift */; };
+		DA4D910225A61BA1000B454D /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4D910025A61BA1000B454D /* EventTableViewCell.xib */; };
 		DA587115250A127A00FF6F13 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA587114250A127A00FF6F13 /* UIViewController+.swift */; };
 		DA587117250A466D00FF6F13 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA587116250A466D00FF6F13 /* MainViewController.swift */; };
 		DA5FC2A7258CD89D00FE7CCF /* TopicCombining.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5FC2A6258CD89D00FE7CCF /* TopicCombining.swift */; };
@@ -69,7 +83,21 @@
 		C9830CF7EFE4A02397E96821 /* Pods-RxSwiftDive-RxSwiftDiveUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftDive-RxSwiftDiveUITests.release.xcconfig"; path = "Target Support Files/Pods-RxSwiftDive-RxSwiftDiveUITests/Pods-RxSwiftDive-RxSwiftDiveUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D12A3946C2F494A2514D42EC /* Pods-RxSwiftDive-RxSwiftDiveUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftDive-RxSwiftDiveUITests.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftDive-RxSwiftDiveUITests/Pods-RxSwiftDive-RxSwiftDiveUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DA10DF67250B587E0074051E /* PHPhotoLibrary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHPhotoLibrary+.swift"; sourceTree = "<group>"; };
+		DA42D28625A6F4FD003C80F0 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		DA49D0FD250A8569006CE628 /* TopicFiltering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicFiltering.swift; sourceTree = "<group>"; };
+		DA4D90BE25A5FB5C000B454D /* OurPlanetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurPlanetViewController.swift; sourceTree = "<group>"; };
+		DA4D90BF25A5FB5C000B454D /* OurPlanetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OurPlanetViewController.xib; sourceTree = "<group>"; };
+		DA4D90C525A5FC5D000B454D /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		DA4D90C625A5FC5D000B454D /* EventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventViewController.xib; sourceTree = "<group>"; };
+		DA4D90D225A5FEDD000B454D /* EOEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EOEvent.swift; sourceTree = "<group>"; };
+		DA4D90D325A5FEDD000B454D /* EONET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EONET.swift; sourceTree = "<group>"; };
+		DA4D90D425A5FEDD000B454D /* EOLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EOLocation.swift; sourceTree = "<group>"; };
+		DA4D90D525A5FEDD000B454D /* EOError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EOError.swift; sourceTree = "<group>"; };
+		DA4D90D625A5FEDD000B454D /* EOEnvelope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EOEnvelope.swift; sourceTree = "<group>"; };
+		DA4D90D725A5FEDE000B454D /* EOCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EOCategory.swift; sourceTree = "<group>"; };
+		DA4D90E725A60420000B454D /* Copyright_.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Copyright_.txt; sourceTree = "<group>"; };
+		DA4D90FF25A61BA1000B454D /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		DA4D910025A61BA1000B454D /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		DA587114250A127A00FF6F13 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		DA587116250A466D00FF6F13 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DA5FC2A6258CD89D00FE7CCF /* TopicCombining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCombining.swift; sourceTree = "<group>"; };
@@ -160,6 +188,43 @@
 				F0B1454E0D882788AFEC0D90 /* Pods-RxSwiftDiveTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DA4D90BD25A5FB1E000B454D /* OurPlanet */ = {
+			isa = PBXGroup;
+			children = (
+				DA4D90FE25A61B8C000B454D /* Cell */,
+				DA4D90D125A5FED2000B454D /* Model */,
+				DA4D90BE25A5FB5C000B454D /* OurPlanetViewController.swift */,
+				DA4D90BF25A5FB5C000B454D /* OurPlanetViewController.xib */,
+				DA4D90C525A5FC5D000B454D /* EventViewController.swift */,
+				DA4D90C625A5FC5D000B454D /* EventViewController.xib */,
+				DA42D28625A6F4FD003C80F0 /* DownloadView.swift */,
+			);
+			path = OurPlanet;
+			sourceTree = "<group>";
+		};
+		DA4D90D125A5FED2000B454D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA4D90E725A60420000B454D /* Copyright_.txt */,
+				DA4D90D725A5FEDE000B454D /* EOCategory.swift */,
+				DA4D90D625A5FEDD000B454D /* EOEnvelope.swift */,
+				DA4D90D525A5FEDD000B454D /* EOError.swift */,
+				DA4D90D225A5FEDD000B454D /* EOEvent.swift */,
+				DA4D90D425A5FEDD000B454D /* EOLocation.swift */,
+				DA4D90D325A5FEDD000B454D /* EONET.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DA4D90FE25A61B8C000B454D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DA4D90FF25A61BA1000B454D /* EventTableViewCell.swift */,
+				DA4D910025A61BA1000B454D /* EventTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		DA854EFB258B35FB00FBF9F7 /* GitFeed */ = {
@@ -286,6 +351,7 @@
 				DACAE48A2509F41D00EFC7AF /* Basics */,
 				DACAE48B2509F4AC00EFC7AF /* Combinestagram */,
 				DA854EFB258B35FB00FBF9F7 /* GitFeed */,
+				DA4D90BD25A5FB1E000B454D /* OurPlanet */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -438,6 +504,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA4D910225A61BA1000B454D /* EventTableViewCell.xib in Resources */,
 				DA9FAC5225079F2500F723E5 /* Copyright.txt in Resources */,
 				DACAE49F2509F94800EFC7AF /* PhotoCollectionViewCell.xib in Resources */,
 				DA854F02258B37C100FBF9F7 /* GitFeedViewController.xib in Resources */,
@@ -445,7 +512,10 @@
 				DA854F0A258B38BE00FBF9F7 /* GitTableViewCell.xib in Resources */,
 				DA9FAC272507976600F723E5 /* LaunchScreen.storyboard in Resources */,
 				DA9FAC242507976600F723E5 /* Assets.xcassets in Resources */,
+				DA4D90C825A5FC5D000B454D /* EventViewController.xib in Resources */,
 				DACAE49A2509F71900EFC7AF /* PhotosCollectionViewController.xib in Resources */,
+				DA4D90C125A5FB5C000B454D /* OurPlanetViewController.xib in Resources */,
+				DA4D90E825A60420000B454D /* Copyright_.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,13 +660,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA42D28725A6F4FD003C80F0 /* DownloadView.swift in Sources */,
 				DA854F09258B38BE00FBF9F7 /* GitTableViewCell.swift in Sources */,
 				DA587115250A127A00FF6F13 /* UIViewController+.swift in Sources */,
 				DA9FAC542507A93000F723E5 /* TestViewController.swift in Sources */,
 				DA854F01258B37C100FBF9F7 /* GitFeedViewController.swift in Sources */,
 				DA49D0FE250A8569006CE628 /* TopicFiltering.swift in Sources */,
+				DA4D90C725A5FC5D000B454D /* EventViewController.swift in Sources */,
 				DA9FAC4F250799D000F723E5 /* TopicObservables.swift in Sources */,
+				DA4D90C025A5FB5C000B454D /* OurPlanetViewController.swift in Sources */,
+				DA4D90DA25A5FEDE000B454D /* EOLocation.swift in Sources */,
 				DA9FAC4C2507994800F723E5 /* BasicsViewController.swift in Sources */,
+				DA4D90D925A5FEDE000B454D /* EONET.swift in Sources */,
 				DAA43C1225778A4C0086F179 /* TopicTransforming.swift in Sources */,
 				DACAE4992509F71900EFC7AF /* PhotosCollectionViewController.swift in Sources */,
 				DA9FAC1B2507976400F723E5 /* AppDelegate.swift in Sources */,
@@ -605,13 +680,18 @@
 				DACAE4882509F3CA00EFC7AF /* PhotoWriter.swift in Sources */,
 				DAB06FDE2509FE45009005A6 /* CombineViewController.swift in Sources */,
 				DA587117250A466D00FF6F13 /* MainViewController.swift in Sources */,
+				DA4D90DC25A5FEDE000B454D /* EOEnvelope.swift in Sources */,
 				DA9FAC562507B72B00F723E5 /* TopicSubjects.swift in Sources */,
+				DA4D910125A61BA1000B454D /* EventTableViewCell.swift in Sources */,
 				DACAE4852509F36900EFC7AF /* UIImage+.swift in Sources */,
 				DA10DF68250B587E0074051E /* PHPhotoLibrary+.swift in Sources */,
+				DA4D90DB25A5FEDE000B454D /* EOError.swift in Sources */,
 				DA854F0F258B554500FBF9F7 /* UITable&UICollection+.swift in Sources */,
+				DA4D90D825A5FEDE000B454D /* EOEvent.swift in Sources */,
 				DA9FAC5925089A9800F723E5 /* String+.swift in Sources */,
 				DACAE49E2509F94800EFC7AF /* PhotoCollectionViewCell.swift in Sources */,
 				DA9FAC1D2507976400F723E5 /* SceneDelegate.swift in Sources */,
+				DA4D90DD25A5FEDE000B454D /* EOCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

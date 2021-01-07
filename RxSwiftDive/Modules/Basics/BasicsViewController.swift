@@ -59,7 +59,7 @@ class BasicsViewController: UIViewController {
             topics.append(TopicObservables())
         case .three:
             topics.append(TopicSubjects())
-        case .four, .eight:
+        case .four, .eight, .ten:
             break
         case .five:
             topics.append(TopicFiltering())
