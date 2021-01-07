@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last 360 days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tcb-32-W1z">
-                    <rect key="frame" x="24" y="68" width="108" height="21"/>
+                    <rect key="frame" x="16" y="68" width="124" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -41,7 +41,7 @@
                     </constraints>
                 </view>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="360" minValue="1" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="xHT-t5-mNJ">
-                    <rect key="frame" x="146" y="68" width="246" height="31"/>
+                    <rect key="frame" x="154" y="68" width="246" height="31"/>
                 </slider>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -53,8 +53,9 @@
                 <constraint firstItem="tcb-32-W1z" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="24" id="EDT-GA-XBL"/>
                 <constraint firstItem="wx9-xz-zKe" firstAttribute="top" secondItem="Ilc-v8-pZi" secondAttribute="bottom" constant="8" id="F4j-EB-YbK"/>
                 <constraint firstItem="xHT-t5-mNJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="24" id="Jqe-wA-ZOk"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xHT-t5-mNJ" secondAttribute="trailing" constant="24" id="OUE-X9-bsN"/>
-                <constraint firstItem="tcb-32-W1z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="Ybp-fS-kh8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xHT-t5-mNJ" secondAttribute="trailing" constant="16" id="OUE-X9-bsN"/>
+                <constraint firstItem="tcb-32-W1z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Ybp-fS-kh8"/>
+                <constraint firstItem="tcb-32-W1z" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.3" id="dpL-Mj-yv7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wx9-xz-zKe" secondAttribute="trailing" constant="16" id="kro-Q4-Lzx"/>
                 <constraint firstItem="wx9-xz-zKe" firstAttribute="top" secondItem="xHT-t5-mNJ" secondAttribute="bottom" constant="16" id="p2M-rz-0Z2"/>
                 <constraint firstItem="Ilc-v8-pZi" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="pom-hq-NPI"/>

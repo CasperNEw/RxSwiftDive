@@ -59,6 +59,7 @@ class EventViewController: UIViewController {
         slider.value = 360
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
         tableView.register(EventTableViewCell.self)
     }
 }
